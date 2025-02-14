@@ -194,19 +194,37 @@ namespace CDebugger
         private void CreateSettingsAsset()
         {
             _debuggerSettings = CreateInstance<DebuggerSettings>();
-            string packagePath = "Resources/CustomDebugger/CustomDebuggerSettings.asset";
+            // string packagePath = "Resources/CustomDebugger/CustomDebuggerSettings.asset";
+
+            // Ruta base donde deseas crear el asset
+            string basePath = "Assets/Resources/CustomDebugger";
+
+            var assetPath = EnsureValidAssetPath(basePath);
+
 
             // Crear el asset dentro del paquete
-            AssetDatabase.CreateAsset(_debuggerSettings, packagePath);
+            AssetDatabase.CreateAsset(_debuggerSettings, assetPath);
             UpdateDebuggerSettings();
             AssetDatabase.SaveAssets();
-            
-            // AssetDatabase.CreateAsset(_debuggerSettings, "Assets/Resources/CustomDebugger/CustomDebuggerSettings.asset");
-            // UpdateDebuggerSettings();
-            // AssetDatabase.SaveAssets();
         }
-        
-        
-        
+
+        private static string EnsureValidAssetPath(string basePath)
+        {
+            // Verificar si la carpeta 'Assets/Resources' existe, si no, crearla
+            if (!AssetDatabase.IsValidFolder("Assets/Resources"))
+            {
+                AssetDatabase.CreateFolder("Assets", "Resources"); // Crear la carpeta 'Resources' si no existe
+            }
+
+            // Verificar si la carpeta 'Assets/Resources/CustomDebugger' existe, si no, crearla
+            if (!AssetDatabase.IsValidFolder(basePath))
+            {
+                AssetDatabase.CreateFolder("Assets/Resources", "CustomDebugger"); // Crear la carpeta 'CustomDebugger' dentro de 'Resources'
+            }
+
+            // Ruta completa para el asset
+            string assetPath = basePath + "/CustomDebuggerSettings.asset";
+            return assetPath;
+        }
     }
 }

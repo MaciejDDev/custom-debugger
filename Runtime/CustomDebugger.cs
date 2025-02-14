@@ -30,7 +30,7 @@ namespace CDebugger
 
             if (_debuggerSettings == null)
             {
-                Debug.LogWarning("LoggerSettings asset not found! Create one in Tools/CustomDebugger/Settings.");
+                Debug.LogWarning("LoggerSettings asset not found! Create one by opening settings window: Tools/CustomDebugger/Settings.");
             }
         }
 
