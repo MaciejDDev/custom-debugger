@@ -156,7 +156,7 @@ namespace CDebugger
 
             // Start building the enum content
             StringBuilder enumContent = new StringBuilder();
-            enumContent.AppendLine("namespace Tools.CustomDebugger");
+            enumContent.AppendLine("namespace Tools.CDebugger");
             enumContent.AppendLine("{");
 
             enumContent.AppendLine("    public enum LogCategoryType");
@@ -183,7 +183,7 @@ namespace CDebugger
         private void LoadSettings()
         {
             _debuggerSettings = AssetDatabase.LoadAssetAtPath<DebuggerSettings>(
-                "Packages/com.MaciejDDev.CustomDebugger/Runtime/Resources/CustomDebuggerSettings.asset");
+                "Packages/com.MaciejDDev.CustomDebugger/Runtime/Assets/CustomDebuggerSettings.asset");
             if (_debuggerSettings == null)
             {
                 Debug.LogWarning("Custom Debugger settings not found! Creating new one...");
@@ -194,7 +194,7 @@ namespace CDebugger
         private void CreateSettingsAsset()
         {
             _debuggerSettings = CreateInstance<DebuggerSettings>();
-            string packagePath = "Packages/com.MaciejDDev.CustomDebugger/Runtime/Resources/CustomDebuggerSettings.asset";
+            string packagePath = "Packages/com.MaciejDDev.CustomDebugger/Runtime/Assets/CustomDebuggerSettings.asset";
 
             // Crear el asset dentro del paquete
             AssetDatabase.CreateAsset(_debuggerSettings, packagePath);
