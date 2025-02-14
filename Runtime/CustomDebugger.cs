@@ -7,7 +7,7 @@ namespace CDebugger
     public static class CustomDebugger 
     {
 
-        private const string LOGS_PATH = "Packages/com.maciejddev.custom-debugger/Runtime/Assets/CustomDebuggerSettings.asset";
+        private const string LOGS_PATH = "Resources/CustomDebugger/CustomDebuggerSettings.asset";
         private static DebuggerSettings _debuggerSettings;
         private static bool _isInitialized = false;
 

@@ -138,7 +138,7 @@ namespace CDebugger
 
         void UpdateLogCategoryEnum()
         {
-            string filePath = "Packages/com.MaciejDDev.CustomDebugger/Runtime/LogCategoryType.cs";
+            string filePath = "Resources/CustomDebugger/LogCategoryType.cs";
     
             // Check if the file exists
             if (!File.Exists(filePath))
@@ -183,7 +183,7 @@ namespace CDebugger
         private void LoadSettings()
         {
             _debuggerSettings = AssetDatabase.LoadAssetAtPath<DebuggerSettings>(
-                "Packages/com.maciejddev.custom-debugger/Runtime/Assets/CustomDebuggerSettings.asset");
+                "Resources/CustomDebugger/CustomDebuggerSettings.asset");
             if (_debuggerSettings == null)
             {
                 Debug.LogWarning("Custom Debugger settings not found! Creating new one...");
@@ -194,7 +194,7 @@ namespace CDebugger
         private void CreateSettingsAsset()
         {
             _debuggerSettings = CreateInstance<DebuggerSettings>();
-            string packagePath = "Packages/com.maciejddev.custom-debugger/Runtime/Assets/CustomDebuggerSettings.asset";
+            string packagePath = "Resources/CustomDebugger/CustomDebuggerSettings.asset";
 
             // Crear el asset dentro del paquete
             AssetDatabase.CreateAsset(_debuggerSettings, packagePath);
