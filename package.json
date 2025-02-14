@@ -1,12 +1,12 @@
 {
-  "name": "com.MaciejDDev.CustomDebugger",
+  "name": "com.maciejddev.custom-debugger",
   "version": "1.0.0",
   "displayName": "Custom Debugger Package",
   "description": "Custom console logs. (Testing phase)",
   "unity": "2021.3",
+  "dependencies": {},
   "author": {
     "name": "Maciej Draus Pryjda",
     "url": "https://github.com/MaciejDDev"
-  },
-  "dependencies": {}
+  }
 }

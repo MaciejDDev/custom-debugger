@@ -6,7 +6,7 @@ using System.Text;
 using UnityEditor;
 using UnityEngine;
 
-namespace CustomDebugger.Editor
+namespace CDebugger
 {
     public class CustomDebuggerEditor : EditorWindow
     {

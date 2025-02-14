@@ -2,12 +2,12 @@ using UnityEditor;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
-namespace CustomDebugger
+namespace CDebugger
 {
     public static class CustomDebugger 
     {
 
-        private const string LOGS_PATH = "Packages/com.MaciejDDev.CustomDebugger/Runtime/CustomDebuggerSettings.asset";
+        private const string LOGS_PATH = "Resources/CustomDebuggerSettings.asset";
         private static DebuggerSettings _debuggerSettings;
         private static bool _isInitialized = false;
 

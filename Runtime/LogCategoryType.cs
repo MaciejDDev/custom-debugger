@@ -1,4 +1,4 @@
-namespace CustomDebugger
+namespace CDebugger
 {
     public enum LogCategoryType
     {

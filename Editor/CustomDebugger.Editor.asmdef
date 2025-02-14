@@ -1,0 +1,16 @@
+{
+    "name": "CustomDebugger.Editor",
+    "rootNamespace": "CDebugger",
+    "references": [
+        "GUID:0acb59c8ad7f9b144a119f4b3fced5d9"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

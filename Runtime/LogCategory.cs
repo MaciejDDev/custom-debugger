@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace CustomDebugger
+namespace CDebugger
 {
     [Serializable]
     public class LogCategory

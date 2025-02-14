@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace CustomDebugger
+namespace CDebugger
 {
     [CreateAssetMenu(fileName = "DebuggerSettings", menuName = "CustomDebuggerSettings")]
     public class DebuggerSettings : ScriptableObject
