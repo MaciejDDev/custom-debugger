@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace CDebugger
 {
@@ -117,7 +118,15 @@ namespace CDebugger
         {
             var enumValues = Enum.GetValues(typeof(LogCategoryType));
             //Debug.Log($"Updating debugger settings. debugger settings categories count: {_debuggerSettings.categories.Count} and enum length: {enumValues.Length} ");
-            if (_debuggerSettings.categories.Count != enumValues.Length)
+            if ((_debuggerSettings.categories.Count == 0 && enumValues.Length  != 0) || _debuggerSettings.categories.Count < enumValues.Length)
+            {
+                foreach (var value in enumValues)
+                {
+                    if (!_debuggerSettings.categories.Any(c => c.name == value.ToString()))
+                        _debuggerSettings.categories.Add(new LogCategory() { name = value.ToString(), enabled = true , customColor = Color.white });
+                }
+            }
+            else if (_debuggerSettings.categories.Count != enumValues.Length)
             {
                 bool needsUpdate = false;
                 foreach (var category in _debuggerSettings.categories)
