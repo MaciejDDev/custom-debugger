@@ -183,7 +183,7 @@ namespace CDebugger
         private void LoadSettings()
         {
             _debuggerSettings = AssetDatabase.LoadAssetAtPath<DebuggerSettings>(
-                "Packages/com.MaciejDDev.CustomDebugger/Runtime/Assets/CustomDebuggerSettings.asset");
+                "Packages/com.maciejddev.custom-debugger/Runtime/Assets/CustomDebuggerSettings.asset");
             if (_debuggerSettings == null)
             {
                 Debug.LogWarning("Custom Debugger settings not found! Creating new one...");
@@ -194,7 +194,7 @@ namespace CDebugger
         private void CreateSettingsAsset()
         {
             _debuggerSettings = CreateInstance<DebuggerSettings>();
-            string packagePath = "Packages/com.MaciejDDev.CustomDebugger/Runtime/Assets/CustomDebuggerSettings.asset";
+            string packagePath = "Packages/com.maciejddev.custom-debugger/Runtime/Assets/CustomDebuggerSettings.asset";
 
             // Crear el asset dentro del paquete
             AssetDatabase.CreateAsset(_debuggerSettings, packagePath);

@@ -7,7 +7,7 @@ namespace CDebugger
     public static class CustomDebugger 
     {
 
-        private const string LOGS_PATH = "Packages/com.MaciejDDev.CustomDebugger/Runtime/Assets/CustomDebuggerSettings.asset";
+        private const string LOGS_PATH = "Packages/com.maciejddev.custom-debugger/Runtime/Assets/CustomDebuggerSettings.asset";
         private static DebuggerSettings _debuggerSettings;
         private static bool _isInitialized = false;
 
@@ -25,7 +25,7 @@ namespace CDebugger
             _debuggerSettings = AssetDatabase.LoadAssetAtPath<DebuggerSettings>(LOGS_PATH);
 #else
         // Load settings using Resources in Development Builds
-        _logSettings = Resources.Load<LogSettings>(LOGS_PATH);
+        _logSettings = Resources.Load<LogSettings>("CustomDebuggerSettings.asset");
 #endif
 
             if (_debuggerSettings == null)
