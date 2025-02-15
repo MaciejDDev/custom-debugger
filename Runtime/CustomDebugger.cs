@@ -35,13 +35,13 @@ namespace CDebugger
         }
 
         [HideInCallstack]
-        private static void LogConsole(LogCategoryType type, object txt, LogType logType ,GameObject sender = null)
+        private static void LogConsole(object type, object txt, LogType logType ,GameObject sender = null)
         {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
             EnsureInitialized();
             if (_debuggerSettings == null) return;
 
-            var category = _debuggerSettings.GetCategory(type);
+            var category = _debuggerSettings.GetCategory(type.ToString());
             if (category == null || !category.enabled) 
                 return;
             
@@ -92,24 +92,24 @@ namespace CDebugger
         // }
 
         [HideInCallstack] 
-        public static void Log(LogCategoryType feature,object text, GameObject sender = null)
+        public static void Log(object type,object text, GameObject sender = null)
         {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-            LogConsole(feature, text, LogType.Log , sender);
+            LogConsole(type, text, LogType.Log , sender);
 #endif
         }
         [HideInCallstack] 
-        public static void LogWarning(LogCategoryType feature,object text, GameObject sender = null)
+        public static void LogWarning(object type,object text, GameObject sender = null)
         {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-            LogConsole(feature,text, LogType.Warning, sender);
+            LogConsole(type, text, LogType.Warning, sender);
 #endif
         }
         [HideInCallstack] 
-        public static void LogError(LogCategoryType feature,object text, GameObject sender = null)
+        public static void LogError(object type,object text, GameObject sender = null)
         {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-            LogConsole(feature,text, LogType.Error, sender);
+            LogConsole(type, text, LogType.Error, sender);
 #endif
         }
 

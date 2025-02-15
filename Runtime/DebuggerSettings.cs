@@ -21,12 +21,12 @@ namespace CDebugger
         //
         //     return featureData;
         // }
-        public LogCategory GetCategory(LogCategoryType categoryName)
+        public LogCategory GetCategory(string categoryName)
         {
             return categories.Find(cat => cat.name == categoryName.ToString());
         }
 
-        public void SetCategoryEnabled(LogCategoryType type, bool enabled)
+        public void SetCategoryEnabled(string type, bool enabled)
         {
             LogCategory category = GetCategory(type);
             if (category != null)
@@ -38,5 +38,6 @@ namespace CDebugger
             foreach (var category in categories)
             category.enabled = enabled;
         }
+        
     }
 }
