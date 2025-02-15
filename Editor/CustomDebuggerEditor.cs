@@ -33,7 +33,8 @@ namespace CDebugger
             EditorGUILayout.Space();
 
             if (_debuggerSettings == null)
-                LoadSettings(); 
+                LoadSettings();
+            
             
             if (GUILayout.Button("Enable All Categories"))
                 _debuggerSettings.SetAllLogging(true);
@@ -170,6 +171,7 @@ namespace CDebugger
                 CreateSettingsAsset();
             }
             _debuggerSettings.categories ??= new();
+            UpdateDebuggerSettings();
         }
 
         private void CreateSettingsAsset()

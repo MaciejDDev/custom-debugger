@@ -7,7 +7,7 @@ namespace CDebugger
     public static class CustomDebugger 
     {
 
-        private const string LOGS_PATH = "Resources/CustomDebugger/CustomDebuggerSettings.asset";
+        private const string LOGS_PATH = "Assets/Resources/CustomDebugger/CustomDebuggerSettings.asset";
         private static DebuggerSettings _debuggerSettings;
         private static bool _isInitialized = false;
 
@@ -22,10 +22,10 @@ namespace CDebugger
         {
 #if UNITY_EDITOR
             // Load settings using AssetDatabase in Editor
-            _debuggerSettings = AssetDatabase.LoadAssetAtPath<DebuggerSettings>(LOGS_PATH);
+            _debuggerSettings = Resources.Load<DebuggerSettings>("CustomDebugger/CustomDebuggerSettings");
 #else
         // Load settings using Resources in Development Builds
-        _logSettings = Resources.Load<LogSettings>("CustomDebuggerSettings.asset");
+        _logSettings = Resources.Load<DebuggerSettings>("CustomDebugger/CustomDebuggerSettings.asset");
 #endif
 
             if (_debuggerSettings == null)
