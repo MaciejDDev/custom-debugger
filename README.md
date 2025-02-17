@@ -34,9 +34,13 @@ From the settings window, you can add new log categories, set colors, enable/dis
 3. Code examples
    
   CustomDebugger.Log(LogCategories.Default,"Hello World");
+  
   CustomDebugger.Log(LogCategories.Player,"Player spawned");
+  
   CustomDebugger.LogWarning(LogCategories.Player,"Player warning");
+  
   CustomDebugger.LogError(LogCategories.Player,"Player null reference");
+  
   CustomDebugger.Log(LogCategories.Enemies,"Enemy spawned.");
 
 ![image](https://github.com/user-attachments/assets/29457f46-642d-4220-8583-c65d3292c13b)
