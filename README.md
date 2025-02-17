@@ -24,6 +24,7 @@ Go to Window > Custom Debugger and configure your log categories.
 Assets/Resources/CustomDebugger/CustomDebuggerSettings.asset
 Assets/Resources/CustomDebugger/LogCategories.cs
 ![image](https://github.com/user-attachments/assets/27b760ea-f7a6-4dee-8516-6eb7147ee225)
+
 NOTE: You should not modify these classes manually. Instead use the settings window.
 
 2️. Define Custom Categories
