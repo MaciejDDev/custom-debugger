@@ -46,7 +46,7 @@ namespace CDebugger
                 return;
             
             var hexColor = ToHex(category.customColor);
-            object header = $"[<color={hexColor}> <b>{type}</b>]:</color> ";
+            object header = $"<color={hexColor}> [<b>{type}</b>]:</color> ";
             switch (logType)
             {
                 case LogType.Warning:
