@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
 
@@ -72,16 +73,23 @@ namespace CDebugger
             newCategoryColor = EditorGUILayout.ColorField("Color", newCategoryColor);
             if (GUILayout.Button("Create"))
             {
-                if (!_debuggerSettings.categories.Any(c => c.name == newCategoryName) && !string.IsNullOrWhiteSpace(newCategoryName))
+                if (VariableNameValidator.IsValidVariableName(newCategoryName))
                 {
-                    _debuggerSettings.categories.Add(new LogCategory() { name = newCategoryName, customColor = newCategoryColor, enabled = true });
-                    UpdateLogCategoriesClass();
-                    newCategoryName = "NewCategory"; // Reset input field
-                    newCategoryColor = Color.white;
+                    if (!_debuggerSettings.categories.Any(c => c.name == newCategoryName) && !string.IsNullOrWhiteSpace(newCategoryName))
+                    {
+                        _debuggerSettings.categories.Add(new LogCategory() { name = newCategoryName, customColor = newCategoryColor, enabled = true });
+                        newCategoryName = "NewCategory"; // Reset input field
+                        newCategoryColor = Color.white;
+                        UpdateLogCategoriesClass();
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Category already exists!");
+                    }
                 }
                 else
                 {
-                    Debug.LogWarning("Category already exists!");
+                    Debug.LogWarning($"The category name '{newCategoryName}' is invalid. Please use a name that starts with a letter or underscore and does not contain special characters or spaces.");
                 }
             }
 
@@ -193,11 +201,11 @@ namespace CDebugger
             _debuggerSettings.categories.Add(new LogCategory() { name = "Default", enabled = true, customColor = newCategoryColor});
             _debuggerSettings.categories.Add(new LogCategory() { name = "Player", enabled = true, customColor = newCategoryColor});
             _debuggerSettings.categories.Add(new LogCategory() { name = "Input", enabled = true, customColor = newCategoryColor});
-            _debuggerSettings.categories.Add(new LogCategory() { name = "Enemies", enabled = true, customColor = newCategoryColor});
-            _debuggerSettings.categories.Add(new LogCategory() { name = "NPCs", enabled = true, customColor = newCategoryColor});
             _debuggerSettings.categories.Add(new LogCategory() { name = "UI", enabled = true, customColor = newCategoryColor});
-            _debuggerSettings.categories.Add(new LogCategory() { name = "Map", enabled = true, customColor = newCategoryColor});
-            _debuggerSettings.categories.Add(new LogCategory() { name = "Inventory", enabled = true, customColor = newCategoryColor});
+            // _debuggerSettings.categories.Add(new LogCategory() { name = "Enemies", enabled = true, customColor = newCategoryColor});
+            // _debuggerSettings.categories.Add(new LogCategory() { name = "NPCs", enabled = true, customColor = newCategoryColor});
+            // _debuggerSettings.categories.Add(new LogCategory() { name = "Map", enabled = true, customColor = newCategoryColor});
+            // _debuggerSettings.categories.Add(new LogCategory() { name = "Inventory", enabled = true, customColor = newCategoryColor});
         }
 
         private static string EnsureValidAssetPath(string basePath)
