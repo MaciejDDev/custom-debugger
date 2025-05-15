@@ -24,8 +24,8 @@ namespace CDebugger
             // Load settings using AssetDatabase in Editor
             _debuggerSettings = Resources.Load<DebuggerSettings>("CustomDebugger/CustomDebuggerSettings");
 #else
-        // Load settings using Resources in Development Builds
-        _logSettings = Resources.Load<DebuggerSettings>("CustomDebugger/CustomDebuggerSettings.asset");
+            // Load settings using Resources in Development Builds
+            _debuggerSettings = Resources.Load<DebuggerSettings>("CustomDebugger/CustomDebuggerSettings.asset");
 #endif
 
             if (_debuggerSettings == null)
@@ -57,7 +57,7 @@ namespace CDebugger
                     break;
                 case LogType.Log:
                 default:
-                Debug.Log($"{header} {txt}", sender);
+                    Debug.Log($"{header} {txt}", sender);
                     break;
                 
             }
