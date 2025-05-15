@@ -20,13 +20,9 @@ namespace CDebugger
         }
         private static void LoadSettings()
         {
-#if UNITY_EDITOR
             // Load settings using AssetDatabase in Editor
             _debuggerSettings = Resources.Load<DebuggerSettings>("CustomDebugger/CustomDebuggerSettings");
-#else
-            // Load settings using Resources in Development Builds
-            _debuggerSettings = Resources.Load<DebuggerSettings>("CustomDebugger/CustomDebuggerSettings.asset");
-#endif
+
 
             if (_debuggerSettings == null)
             {
